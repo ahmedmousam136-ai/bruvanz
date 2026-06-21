@@ -171,6 +171,7 @@
     .float-btn:hover { transform: scale(1.12); }
     .float-btn-wa { background: var(--whatsapp); }
     .float-btn-email { background: var(--caramel); }
+    .float-btn-call { background: #2563eb; }
     .float-tooltip { position: absolute; right: 64px; background: var(--espresso); color: var(--cream); font-size: 0.75rem; font-weight: 600; padding: 6px 12px; border-radius: 8px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity var(--transition); }
     .float-btn:hover .float-tooltip { opacity: 1; }
 
@@ -387,6 +388,10 @@
   </footer>
 
   <div class="float-group">
+    <a class="float-btn float-btn-call" href="tel:+8801978741155" aria-label="Call Bruvanz">
+      <span>📞</span>
+      <span class="float-tooltip">Call Us</span>
+    </a>
     <a class="float-btn float-btn-email" href="mailto:bruvanzcafe@gmail.com" aria-label="Email Bruvanz">
       <span>✉️</span>
       <span class="float-tooltip">Email Us</span>
