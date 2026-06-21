@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bruvans Coffee - Premium Mind Brewing Coffee</title>
-    <meta name="description" content="Experience premium coffee and mocktails at Bruvans in Sylhet. Mind Brewing Coffee shop with cozy ambiance, quality snacks, and exceptional beverages.">
-    <meta name="theme-color" content="#8b6f47">
+    <title>Bruvanz Coffee - Premium Mind Brewing Coffee</title>
     <style>
         * {
             margin: 0;
@@ -13,47 +11,15 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --background: #faf8f3;
-            --foreground: #1a1410;
-            --card: #ffffff;
-            --card-foreground: #1a1410;
-            --primary: #8b6f47;
-            --primary-foreground: #ffffff;
-            --secondary: #d4a574;
-            --secondary-foreground: #ffffff;
-            --muted: #e8e3dc;
-            --muted-foreground: #7a6b5d;
-            --accent: #6b5d47;
-            --accent-foreground: #ffffff;
-            --border: #e8e3dc;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #faf8f3;
+            color: #1a1410;
+            line-height: 1.6;
         }
 
         html {
-            background-color: var(--background);
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            color: var(--foreground);
-            background-color: var(--background);
-            line-height: 1.6;
-            antialiased: true;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-fade-in {
-            animation: fadeIn 0.5s ease-out;
+            background-color: #faf8f3;
         }
 
         /* Hero Section */
@@ -63,9 +29,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            text-align: center;
+            background: linear-gradient(135deg, #8b6f47 0%, #6b5d47 100%);
             color: white;
+            overflow: hidden;
         }
 
         .hero::before {
@@ -75,16 +42,15 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.3);
             z-index: 1;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            text-align: center;
-            max-width: 600px;
-            padding: 20px;
+            max-width: 800px;
+            animation: fadeIn 0.8s ease-out;
         }
 
         .hero-logo {
@@ -96,104 +62,101 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 60px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            font-size: 40px;
+            font-weight: bold;
+            color: #8b6f47;
         }
 
         .hero h1 {
             font-size: 3.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             margin-bottom: 40px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            opacity: 0.95;
         }
 
-        .button-group {
+        .hero-buttons {
             display: flex;
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
-        .btn {
+        button {
             padding: 12px 32px;
-            font-size: 1rem;
-            font-weight: 600;
             border: none;
-            border-radius: 8px;
+            border-radius: 50px;
+            font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+            font-weight: 600;
         }
 
         .btn-primary {
-            background-color: var(--secondary);
-            color: var(--secondary-foreground);
+            background-color: white;
+            color: #8b6f47;
         }
 
         .btn-primary:hover {
-            background-color: #c99558;
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
         .btn-secondary {
-            background-color: white;
-            color: var(--primary);
+            background-color: #d4a574;
+            color: white;
         }
 
         .btn-secondary:hover {
-            background-color: #f0ebe5;
+            background-color: #c99558;
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         /* Menu Section */
         .menu {
             padding: 80px 20px;
-            background-color: var(--background);
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--primary);
             margin-bottom: 50px;
+            color: #1a1410;
         }
 
-        .category-tabs {
+        .menu-tabs {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             justify-content: center;
             margin-bottom: 50px;
             flex-wrap: wrap;
         }
 
-        .tab-button {
-            padding: 12px 24px;
-            border: 2px solid var(--primary);
-            background-color: transparent;
-            color: var(--primary);
-            border-radius: 8px;
+        .menu-tab {
+            padding: 10px 20px;
+            border: 2px solid #8b6f47;
+            background: white;
+            color: #8b6f47;
+            border-radius: 25px;
             cursor: pointer;
-            font-weight: 600;
             transition: all 0.3s ease;
+            font-weight: 600;
         }
 
-        .tab-button.active {
-            background-color: var(--primary);
+        .menu-tab.active {
+            background-color: #8b6f47;
             color: white;
         }
 
-        .tab-button:hover {
-            background-color: var(--primary);
+        .menu-tab:hover {
+            background-color: #8b6f47;
             color: white;
         }
 
@@ -201,84 +164,82 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
-        .menu-card {
-            background: var(--card);
+        .menu-item {
+            background: white;
+            padding: 25px;
             border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             animation: fadeIn 0.5s ease-out;
         }
 
-        .menu-card:hover {
+        .menu-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
-        .menu-card h3 {
-            color: var(--primary);
+        .menu-item h3 {
+            color: #8b6f47;
             margin-bottom: 10px;
             font-size: 1.3rem;
         }
 
-        .menu-card p {
-            color: var(--muted-foreground);
-            font-size: 0.95rem;
+        .menu-item p {
+            color: #7a6b5d;
             margin-bottom: 15px;
+            font-size: 0.95rem;
         }
 
-        .menu-price {
+        .menu-item .price {
             font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--secondary);
-        }
-
-        .hidden {
-            display: none;
+            font-weight: 700;
+            color: #6b5d47;
         }
 
         /* Gallery Section */
         .gallery {
             padding: 80px 20px;
-            background-color: #f5f3f0;
+            background-color: #ffffff;
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+        .gallery-container {
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .gallery-image {
-            position: relative;
-            height: 300px;
-            border-radius: 12px;
-            overflow: hidden;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
         }
 
-        .gallery-image img {
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            height: 250px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .gallery-item svg {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
         }
 
-        .gallery-image:hover img {
-            transform: scale(1.1);
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
         /* Location Section */
         .location {
             padding: 80px 20px;
-            background-color: var(--background);
+            background-color: #faf8f3;
         }
 
         .location-container {
@@ -290,164 +251,160 @@
             align-items: center;
         }
 
-        .location-info h2 {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 30px;
+        .location-info h3 {
+            color: #8b6f47;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
         }
 
-        .info-item {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .info-icon {
-            width: 40px;
-            height: 40px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50%;
+        .location-info p {
+            margin-bottom: 15px;
+            color: #7a6b5d;
             display: flex;
             align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 1.2rem;
-        }
-
-        .info-content h3 {
-            color: var(--primary);
-            margin-bottom: 5px;
-            font-size: 1.1rem;
-        }
-
-        .info-content p {
-            color: var(--muted-foreground);
+            gap: 10px;
         }
 
         .location-map {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
             height: 400px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            background: #e8e3dc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: #8b6f47;
         }
 
-        .location-map iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        .directions-btn {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #8b6f47;
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .directions-btn:hover {
+            background-color: #6b5d47;
+            transform: translateY(-2px);
         }
 
         /* Floating Buttons */
         .floating-buttons {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 40;
+            bottom: 30px;
+            right: 30px;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 15px;
+            z-index: 999;
         }
 
-        .floating-button-group {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        .button-label {
-            background-color: var(--card);
-            padding: 8px 16px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--foreground);
-            white-space: nowrap;
-        }
-
-        .floating-btn {
-            width: 56px;
-            height: 56px;
+        .float-btn {
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             border: none;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 28px;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             color: white;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
-        .floating-btn-whatsapp {
-            background-color: #25d366;
+        .float-whatsapp {
+            background-color: #25D366;
         }
 
-        .floating-btn-whatsapp:hover {
-            background-color: #1fa857;
+        .float-whatsapp:hover {
             transform: scale(1.1);
+            background-color: #20ba5a;
         }
 
-        .floating-btn-call {
-            background-color: #ff9500;
+        .float-call {
+            background-color: #FF9500;
         }
 
-        .floating-btn-call:hover {
+        .float-call:hover {
+            transform: scale(1.1);
             background-color: #e68900;
-            transform: scale(1.1);
         }
 
-        .floating-btn-email {
-            background-color: #2563eb;
+        .float-email {
+            background-color: #2196F3;
         }
 
-        .floating-btn-email:hover {
-            background-color: #1d4ed8;
+        .float-email:hover {
             transform: scale(1.1);
+            background-color: #1976D2;
         }
 
         /* Footer */
-        .footer {
-            background-color: var(--primary);
-            color: white;
-            padding: 60px 20px 30px;
+        footer {
+            background-color: #1a1410;
+            color: #e8e3dc;
+            padding: 60px 20px 20px;
+            text-align: center;
         }
 
-        .footer-container {
+        .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
+            text-align: left;
         }
 
-        .footer-section h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: var(--secondary);
+        .footer-section h4 {
+            color: #d4a574;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
         }
 
         .footer-section p,
         .footer-section a {
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 10px;
+            color: #e8e3dc;
             text-decoration: none;
-            transition: color 0.3s ease;
+            margin-bottom: 10px;
+            display: block;
+            font-size: 0.95rem;
         }
 
         .footer-section a:hover {
-            color: var(--secondary);
+            color: #d4a574;
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 30px;
+            border-top: 1px solid #8b6f47;
+            padding-top: 20px;
             text-align: center;
-            color: rgba(255, 255, 255, 0.7);
+            color: #a89072;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hidden {
+            display: none !important;
         }
 
         /* Responsive */
@@ -460,31 +417,28 @@
                 font-size: 1rem;
             }
 
-            .section-title {
-                font-size: 1.8rem;
+            .hero-buttons {
+                flex-direction: column;
             }
 
             .location-container {
                 grid-template-columns: 1fr;
-                gap: 30px;
             }
 
             .location-map {
                 height: 300px;
             }
 
-            .button-group {
-                flex-direction: column;
+            .floating-buttons {
+                bottom: 20px;
+                right: 20px;
                 gap: 10px;
             }
 
-            .floating-button-group {
-                flex-direction: column-reverse;
-            }
-
-            .button-label {
-                font-size: 0.75rem;
-                padding: 6px 12px;
+            .float-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 22px;
             }
         }
     </style>
@@ -494,133 +448,117 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-logo">☕</div>
-            <h1>Bruvanz</h1>
-            <p>Mind Brewing Coffee</p>
-            <p style="font-size: 1rem; opacity: 0.9;">Premium Coffee & Mocktails Experience</p>
-            <div class="button-group">
-                <a href="#" class="btn btn-primary" onclick="handleWhatsApp(event)">Order via WhatsApp</a>
-                <a href="#menu" class="btn btn-secondary">View Menu</a>
+            <h1>BRUVANZ</h1>
+            <p>Mind Brewing Coffee - Premium Coffee Experience</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="openWhatsApp()">💬 Order via WhatsApp</button>
+                <button class="btn-secondary" onclick="scrollToMenu()">📋 View Menu</button>
             </div>
         </div>
     </section>
 
     <!-- Menu Section -->
-    <section class="menu" id="menu">
+    <section class="menu" id="menu-section">
         <h2 class="section-title">Our Menu</h2>
-        
-        <div class="category-tabs">
-            <button class="tab-button active" onclick="filterMenu('coffee')">Coffee</button>
-            <button class="tab-button" onclick="filterMenu('cold-drinks')">Cold Drinks</button>
-            <button class="tab-button" onclick="filterMenu('snacks')">Snacks</button>
-            <button class="tab-button" onclick="filterMenu('special')">Special Items</button>
+        <div class="menu-tabs">
+            <button class="menu-tab active" onclick="filterMenu('all')">All</button>
+            <button class="menu-tab" onclick="filterMenu('coffee')">☕ Coffee</button>
+            <button class="menu-tab" onclick="filterMenu('cold')">🧊 Cold Drinks</button>
+            <button class="menu-tab" onclick="filterMenu('snacks')">🍕 Snacks</button>
+            <button class="menu-tab" onclick="filterMenu('special')">✨ Special</button>
         </div>
-
-        <div class="menu-grid" id="menu-grid">
-            <!-- Menu items will be inserted here by JavaScript -->
+        <div class="menu-grid" id="menu-items">
+            <!-- Menu items will be generated by JavaScript -->
         </div>
     </section>
 
     <!-- Gallery Section -->
     <section class="gallery">
-        <h2 class="section-title">Gallery</h2>
-        <div class="gallery-grid">
-            <div class="gallery-image">
-                <img src="public/cafe-exterior.png" alt="Café Exterior">
-                <img src="public/cafe-interior.png" alt="Interior">
-                <img src="public/premium-coffee.png" alt="Coffee">
-                <img src="public/mocktail-bar.png" alt="Mock Tail Bar">
-                <img src="public/seating-area.png" alt="Seating">
+        <div class="gallery-container">
+            <h2 class="section-title">Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="#8b6f47" width="400" height="300"/>
+                        <text x="50%" y="50%" font-size="48" fill="white" text-anchor="middle" dominant-baseline="middle" font-weight="bold">☕ Café</text>
+                        <text x="50%" y="70%" font-size="16" fill="#d4a574" text-anchor="middle" dominant-baseline="middle">Exterior</text>
+                    </svg>
+                </div>
+                <div class="gallery-item">
+                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="#d4a574" width="400" height="300"/>
+                        <text x="50%" y="50%" font-size="48" fill="white" text-anchor="middle" dominant-baseline="middle" font-weight="bold">🎨 Modern</text>
+                        <text x="50%" y="70%" font-size="16" fill="#6b5d47" text-anchor="middle" dominant-baseline="middle">Interior</text>
+                    </svg>
+                </div>
+                <div class="gallery-item">
+                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="#6b5d47" width="400" height="300"/>
+                        <text x="50%" y="50%" font-size="48" fill="white" text-anchor="middle" dominant-baseline="middle" font-weight="bold">☕ Premium</text>
+                        <text x="50%" y="70%" font-size="16" fill="#d4a574" text-anchor="middle" dominant-baseline="middle">Coffee</text>
+                    </svg>
+                </div>
+                <div class="gallery-item">
+                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="#a89072" width="400" height="300"/>
+                        <text x="50%" y="50%" font-size="48" fill="white" text-anchor="middle" dominant-baseline="middle" font-weight="bold">🍸 Mocktail</text>
+                        <text x="50%" y="70%" font-size="16" fill="#1a1410" text-anchor="middle" dominant-baseline="middle">Bar</text>
+                    </svg>
+                </div>
+                <div class="gallery-item">
+                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="#c99558" width="400" height="300"/>
+                        <text x="50%" y="50%" font-size="48" fill="white" text-anchor="middle" dominant-baseline="middle" font-weight="bold">🪑 Cozy</text>
+                        <text x="50%" y="70%" font-size="16" fill="#1a1410" text-anchor="middle" dominant-baseline="middle">Seating</text>
+                    </svg>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Location Section -->
     <section class="location">
-        <h2 class="section-title">Visit Us</h2>
         <div class="location-container">
             <div class="location-info">
-                <h2>Find Us Here</h2>
-                
-                <div class="info-item">
-                    <div class="info-icon">📍</div>
-                    <div class="info-content">
-                        <h3>Address</h3>
-                        <p>Mirboxtula, 3100 Sylhet, Bangladesh</p>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <div class="info-icon">📞</div>
-                    <div class="info-content">
-                        <h3>Phone</h3>
-                        <p><a href="tel:+8801700000000" style="color: inherit;">+880 1700 000 000</a></p>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <div class="info-icon">✉️</div>
-                    <div class="info-content">
-                        <h3>Email</h3>
-                        <p><a href="mailto:info@bruvanz.com" style="color: inherit;">info@bruvanz.com</a></p>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <div class="info-icon">🕐</div>
-                    <div class="info-content">
-                        <h3>Hours</h3>
-                        <p>Mon - Sun: 8:00 AM - 11:00 PM</p>
-                    </div>
-                </div>
-
-                <a href="https://maps.google.com/?q=Mirboxtula+Sylhet" target="_blank" class="btn btn-primary" style="margin-top: 20px;">Get Directions</a>
+                <h3>📍 Visit Us</h3>
+                <p><strong>Bruvanz Coffee</strong></p>
+                <p>Mirboxtula, 3100 Sylhet, Bangladesh</p>
+                <p>☎️ <a href="tel:+8801700000000" style="color: #8b6f47; text-decoration: underline;">+880 1700 000000</a></p>
+                <p>✉️ <a href="mailto:info@bruvanz.com" style="color: #8b6f47; text-decoration: underline;">info@bruvanz.com</a></p>
+                <p>🕒 <strong>Hours:</strong> 9 AM - 10 PM Daily</p>
+                <a href="https://maps.google.com/?q=Sylhet+Bangladesh" target="_blank" class="directions-btn">Get Directions</a>
             </div>
-
             <div class="location-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3630.234567890123!2d91.8700!3d24.8900!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375253d9e15d01e5%3A0x1234567890abcdef!2sMirboxtula%2C%20Sylhet!5e0!3m2!1sen!2sbd!4v1234567890123" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                📍 View on Google Maps
             </div>
         </div>
     </section>
 
     <!-- Floating Buttons -->
     <div class="floating-buttons">
-        <div class="floating-button-group">
-            <span class="button-label">Email</span>
-            <button class="floating-btn floating-btn-email" onclick="handleEmail()" title="Email us">✉️</button>
-        </div>
-        <div class="floating-button-group">
-            <span class="button-label">Call</span>
-            <button class="floating-btn floating-btn-call" onclick="handleCall()" title="Call us">📞</button>
-        </div>
-        <div class="floating-button-group">
-            <span class="button-label">WhatsApp</span>
-            <button class="floating-btn floating-btn-whatsapp" onclick="handleWhatsApp()" title="WhatsApp">💬</button>
-        </div>
+        <button class="float-btn float-whatsapp" onclick="openWhatsApp()" title="WhatsApp">💬</button>
+        <button class="float-btn float-call" onclick="makeCall()" title="Call">☎️</button>
+        <button class="float-btn float-email" onclick="sendEmail()" title="Email">✉️</button>
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
+    <footer>
+        <div class="footer-content">
             <div class="footer-section">
-                <h3>Bruvanz Coffee</h3>
-                <p>Experience premium mind-brewing coffee in the heart of Sylhet.</p>
+                <h4>About Bruvanz</h4>
+                <p>Premium coffee shop serving mind-brewing quality coffee and delightful snacks.</p>
             </div>
             <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="#menu">Menu</a>
+                <h4>Quick Links</h4>
+                <a href="#menu-section">Menu</a>
                 <a href="#gallery">Gallery</a>
                 <a href="#location">Location</a>
             </div>
             <div class="footer-section">
-                <h3>Contact Info</h3>
-                <p>📞 +880 1700 000 000</p>
-                <p>📧 info@bruvanz.com</p>
+                <h4>Contact</h4>
                 <p>📍 Mirboxtula, Sylhet</p>
-            </div>
-            <div class="footer-section">
-                <h3>Hours</h3>
-                <p>Monday - Sunday</p>
-                <p>8:00 AM - 11:00 PM</p>
+                <p>☎️ +880 1700 000000</p>
+                <p>✉️ info@bruvanz.com</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -632,79 +570,89 @@
         // Menu Data
         const menuData = {
             coffee: [
-                { name: 'Espresso', description: 'Strong shot of pure coffee', price: '৳150' },
-                { name: 'Cappuccino', description: 'Espresso with steamed milk foam', price: '৳200' },
-                { name: 'Latte', description: 'Smooth blend of espresso and milk', price: '৳200' },
-                { name: 'Americano', description: 'Espresso diluted with hot water', price: '৳180' }
+                { name: 'Espresso', price: '৳ 120', desc: 'Strong and smooth' },
+                { name: 'Cappuccino', price: '৳ 180', desc: 'Creamy and rich' },
+                { name: 'Latte', price: '৳ 170', desc: 'Smooth and silky' },
+                { name: 'Americano', price: '৳ 140', desc: 'Bold and classic' }
             ],
-            'cold-drinks': [
-                { name: 'Iced Latte', description: 'Chilled coffee with cold milk', price: '৳220' },
-                { name: 'Cold Brew', description: 'Smooth cold brewed coffee', price: '৳200' },
-                { name: 'Iced Mocktail', description: 'Refreshing non-alcoholic beverage', price: '৳250' },
-                { name: 'Seasonal Cooler', description: 'Seasonal cold specialty drink', price: '৳240' }
+            cold: [
+                { name: 'Iced Latte', price: '৳ 180', desc: 'Refreshing cold coffee' },
+                { name: 'Cold Brew', price: '৳ 160', desc: 'Smooth cold brew' },
+                { name: 'Iced Mocktail', price: '৳ 150', desc: 'Fruity refreshment' },
+                { name: 'Seasonal Cooler', price: '৳ 140', desc: 'Special seasonal drink' }
             ],
             snacks: [
-                { name: 'Croissant', description: 'Butter pastry', price: '৳120' },
-                { name: 'Cheese Pizza', description: 'Cheesy pizza slice', price: '৳150' },
-                { name: 'Pepperoni Pizza', description: 'Pizza with pepperoni', price: '৳180' },
-                { name: 'Sandwich', description: 'Fresh sandwich with ingredients', price: '৳140' }
+                { name: 'Croissant', price: '৳ 100', desc: 'Buttery and flaky' },
+                { name: 'Cheese Pizza', price: '৳ 200', desc: 'Fresh mozzarella' },
+                { name: 'Pepperoni Pizza', price: '৳ 220', desc: 'Classic with pepperoni' },
+                { name: 'Sandwich', price: '৳ 180', desc: 'Fresh and tasty' }
             ],
             special: [
-                { name: 'Signature Blend', description: 'House special coffee blend', price: '৳280' },
-                { name: 'Lavender Latte', description: 'Latte with lavender essence', price: '৳260' },
-                { name: "Chef's Cake", description: 'Homemade specialty cake', price: '৳200' },
-                { name: 'Seasonal Drink', description: 'Limited time seasonal beverage', price: '৳270' }
+                { name: 'Signature Blend', price: '৳ 200', desc: 'House specialty' },
+                { name: 'Lavender Latte', price: '৳ 190', desc: 'Unique and floral' },
+                { name: "Chef's Cake", price: '৳ 150', desc: 'Homemade special' },
+                { name: 'Seasonal Drink', price: '৳ 160', desc: 'Limited edition' }
             ]
         };
 
-        let currentCategory = 'coffee';
+        let currentFilter = 'all';
 
-        // Filter Menu
-        function filterMenu(category) {
-            currentCategory = category;
-            
-            // Update active tab
-            document.querySelectorAll('.tab-button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
+        function renderMenu(filter = 'all') {
+            const menuItems = document.getElementById('menu-items');
+            menuItems.innerHTML = '';
 
-            // Update menu items
-            const menuGrid = document.getElementById('menu-grid');
-            menuGrid.innerHTML = '';
+            let itemsToShow = [];
             
-            menuData[category].forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'menu-card';
-                card.innerHTML = `
+            if (filter === 'all') {
+                itemsToShow = Object.values(menuData).flat();
+            } else {
+                itemsToShow = menuData[filter] || [];
+            }
+
+            itemsToShow.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'menu-item';
+                div.innerHTML = `
                     <h3>${item.name}</h3>
-                    <p>${item.description}</p>
-                    <div class="menu-price">${item.price}</div>
+                    <p>${item.desc}</p>
+                    <div class="price">${item.price}</div>
                 `;
-                menuGrid.appendChild(card);
+                menuItems.appendChild(div);
             });
         }
 
-        // Handle WhatsApp
-        function handleWhatsApp(e) {
-            if (e) e.preventDefault();
-            const message = encodeURIComponent("Hello Bruvans! I'd like to know more about your menu.");
+        function filterMenu(category) {
+            currentFilter = category;
+            
+            // Update active tab
+            document.querySelectorAll('.menu-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            renderMenu(category);
+        }
+
+        function scrollToMenu() {
+            document.getElementById('menu-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openWhatsApp() {
+            const message = encodeURIComponent("Hello Bruvanz! I'd like to know more about your menu and services.");
             window.open(`https://wa.me/8801700000000?text=${message}`, '_blank');
         }
 
-        // Handle Call
-        function handleCall() {
+        function makeCall() {
             window.location.href = 'tel:+8801700000000';
         }
 
-        // Handle Email
-        function handleEmail() {
-            window.location.href = 'mailto:info@bruvanz.com';
+        function sendEmail() {
+            window.location.href = 'mailto:info@bruvanz.com?subject=Inquiry about Bruvanz Coffee';
         }
 
-        // Initialize menu on load
-        window.addEventListener('DOMContentLoaded', function() {
-            filterMenu('coffee');
+        // Initialize menu on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderMenu('all');
         });
     </script>
 </body>
