@@ -159,6 +159,24 @@
     .btn-email-lg:hover { background: #9a7c28; transform: translateY(-2px); }
 
     /* FOOTER */
+    /* CONTACT FORM */
+    .contact-form-wrap { background: rgba(240,230,208,0.05); border: 1px solid rgba(184,150,62,0.18); border-radius: var(--radius-lg); padding: 48px 40px; max-width: 680px; margin: 64px auto 0; }
+    .contact-form-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--cream); margin-bottom: 6px; }
+    .contact-form-title em { font-style: italic; color: var(--caramel); }
+    .contact-form-sub { font-size: 0.88rem; color: rgba(240,230,208,0.55); margin-bottom: 32px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-group label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--caramel); }
+    .form-group input, .form-group textarea, .form-group select { background: rgba(240,230,208,0.06); border: 1px solid rgba(184,150,62,0.22); border-radius: var(--radius); padding: 12px 16px; font-size: 0.9rem; color: var(--cream); font-family: var(--font-body); outline: none; transition: border-color var(--transition), background var(--transition); width: 100%; box-sizing: border-box; }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(240,230,208,0.3); }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--caramel); background: rgba(240,230,208,0.1); }
+    .form-group select option { background: #100C1A; color: var(--cream); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .btn-form-submit { width: 100%; padding: 15px; background: linear-gradient(135deg, var(--caramel), #D4AF6A); color: #0A0A0F; font-size: 0.95rem; font-weight: 700; border: none; border-radius: var(--radius); cursor: pointer; letter-spacing: 0.06em; text-transform: uppercase; transition: var(--transition); margin-top: 8px; }
+    .btn-form-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(184,150,62,0.35); }
+    .form-success { display: none; text-align: center; padding: 28px; color: var(--caramel); font-family: var(--font-display); font-size: 1.1rem; }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } .contact-form-wrap { padding: 32px 20px; } }
+
     footer { background: var(--espresso); padding: 36px 24px; text-align: center; border-top: 1px solid rgba(184,150,62,0.18); }
     .footer-logo { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--cream); margin-bottom: 8px; }
     .footer-logo span { color: var(--caramel); }
@@ -378,11 +396,38 @@
         <a class="btn-wa-lg" href="https://wa.me/8801978741155?text=Hi%20Bruvanz%20Coffee%20Shop%2C%20I%20want%20to%20place%20an%20order." target="_blank" rel="noopener">💬 Order via WhatsApp</a>
         <a class="btn-email-lg" href="mailto:bruvanzcafe@gmail.com">✉️ Send an Email</a>
       </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-wrap fade-up">
+        <div class="contact-form-title">Send Us a <em>Message</em></div>
+        <p class="contact-form-sub">Fill in the form below and we'll get back to you as soon as possible.</p>
+        <div id="contactFormSuccess" class="form-success">✅ Thank you! We'll be in touch shortly.</div>
+        <form id="contactForm" onsubmit="handleFormSubmit(event)" novalidate>
+          <div class="form-row">
+            <div class="form-group"><label for="cf-name">Your Name</label><input type="text" id="cf-name" placeholder="e.g. Ahmed Hassan" required /></div>
+            <div class="form-group"><label for="cf-phone">Phone Number</label><input type="tel" id="cf-phone" placeholder="+880 1XXX XXXXXX" /></div>
+          </div>
+          <div class="form-group"><label for="cf-email">Email Address</label><input type="email" id="cf-email" placeholder="you@example.com" /></div>
+          <div class="form-group">
+            <label for="cf-subject">Subject</label>
+            <select id="cf-subject">
+              <option value="">— Select a topic —</option>
+              <option value="order">Place an Order</option>
+              <option value="reservation">Table Reservation</option>
+              <option value="catering">Catering Enquiry</option>
+              <option value="feedback">Feedback</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="cf-message">Message</label><textarea id="cf-message" placeholder="Write your message here…" required></textarea></div>
+          <button type="submit" class="btn-form-submit">✉️ &nbsp;Send Message</button>
+        </form>
+      </div>
     </div>
   </section>
 
   <footer>
-    <div class="footer-logo">bruv<span>anz</span></div>
+    <div class="footer-logo">Bruv<span>anz</span></div>
     <div class="footer-tagline">Mind Brewing Coffee · Mirboxtullah, Sylhet</div>
     <div class="footer-copy">© 2026 Bruvanz Coffee Shop. All rights reserved.</div>
   </footer>
@@ -429,6 +474,22 @@
       });
     }, { threshold: 0.12 });
     fadeEls.forEach(el => observer.observe(el));
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('cf-name').value.trim();
+      const message = document.getElementById('cf-message').value.trim();
+      if (!name || !message) { alert('Please fill in your name and message.'); return; }
+      const phone = document.getElementById('cf-phone').value.trim();
+      const email = document.getElementById('cf-email').value.trim();
+      const subject = document.getElementById('cf-subject').value;
+      const subjectMap = { order:'Place an Order', reservation:'Table Reservation', catering:'Catering Enquiry', feedback:'Feedback', other:'Other' };
+      const subjectText = subjectMap[subject] || 'General Enquiry';
+      const waText = encodeURIComponent('Hi Bruvanz Coffee Shop!\n\nName: ' + name + '\n' + (phone ? 'Phone: '+phone+'\n' : '') + (email ? 'Email: '+email+'\n' : '') + 'Topic: ' + subjectText + '\n\nMessage:\n' + message);
+      window.open('https://wa.me/8801978741155?text=' + waText, '_blank');
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('contactFormSuccess').style.display = 'block';
+    }
   </script>
 </body>
 </html>
